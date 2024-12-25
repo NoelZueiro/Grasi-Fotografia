@@ -24,26 +24,20 @@
 
     <script src="assets/js/cadastro.js" defer></script>
     <title>Grasi Fotografias - Cadastro</title>
-
 </head>
 
 <body style="background-color: var(--secundary-background);">
     <!-- LOGIN PAGE -->
     <section class="login-page">
-
         <div class="login-container">
-
             <div class="login-register">
-
                 <section>
                     <h1><b>E</b>-Grasi Fotografias</h1>
-
                     <div class="register" id="reg">
-
                         <h3>
-                            Ja é nosso cliente?
+                            Já é nosso cliente?
                             <br><br>
-                            Loge-se agora e receba <b>&nbsp;10% de desconto</b>
+                            Logue-se agora e receba <b>&nbsp;10% de desconto</b>
                             <br>
                             na sua primeira compra
                         </h3>
@@ -59,43 +53,33 @@
                             style="margin-top: 30px; margin-left: 50px;">
                             <p>Logar</p>
                         </button>
-
                     </div>
                 </section>
-
             </div>
 
-            <!-- LOGIN -->
-            <form class="login-sign-in" id="login-form">
-
+            <!-- FORMULÁRIO DE REGISTRO -->
+            <form class="login-sign-in" id="register-form">
                 <section>
                     <div id="cadastroID">
                         <h1>Cadastro</h1>
-
                         <div class="sign-in">
                             <input id="email" type="email" name="email" class="email" placeholder="E-mail" required>
-                            <input id="senha" type="password" name="password" class="password" placeholder="Senha"
-                                required>
-                            <input id="rSenha" type="password" name="password" class="password"
-                                placeholder="Repetir Senha" required>
+                            <input id="senha" type="password" name="password" class="password" placeholder="Senha" required>
+                            <input id="rSenha" type="password" name="password" class="password" placeholder="Repetir Senha" required>
                         </div>
                     </div>
 
                     <div class="btn-Cadastrar">
-
-                        <input style="margin-top: 50px;" type="button" id="register-btn" class="btn-all"
-                            value="Cadastrar" />
+                        <input style="margin-top: 50px;" type="button" id="register-btn" class="btn-all" value="Cadastrar" />
                     </div>
 
                     <div class="voltar-Cadrasto">
                         <a href="login-page.html" id="registrar-pagina-login">
-                            <p>Voltar Login?</p>
+                            <p>Voltar ao Login?</p>
                         </a>
                     </div>
-
                 </section>
             </form>
-
         </div>
     </section>
 
@@ -104,7 +88,6 @@
     <!-- SWEETALERT PERSONALIZADO -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!-------------- SCRIPT SLICK JS ------------------->
     <script src="https://unpkg.com/scrollreveal"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -113,54 +96,46 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
     <script>
-        // Função para verificar se o usuário já está logado ao verificar o cookie
-        function checkLoginStatus() {
-            const userCookie = getCookie("userEmail");
-            if (userCookie) {
-                // Usuário já está logado, pode redirecionar ou mostrar uma mensagem
-                alert("Você já está logado como: " + userCookie);
-                // Redirecionar ou exibir informações do usuário logado
-            }
-        }
-
-        // Função para obter um cookie pelo nome
-        function getCookie(name) {
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
-            if (parts.length === 2) return parts.pop().split(';').shift();
-        }
-
-        // Função para definir um cookie
-        function setCookie(name, value, days) {
-            const date = new Date();
-            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); // expiração em dias
-            const expires = "expires=" + date.toUTCString();
-            document.cookie = `${name}=${value}; ${expires}; path=/`;
-        }
-
-        // Função de login
-        document.getElementById('login-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-
+        document.getElementById('register-btn').addEventListener('click', function() {
             const email = document.getElementById('email').value;
-            const password = document.getElementById('senha').value;
+            const senha = document.getElementById('senha').value;
+            const rSenha = document.getElementById('rSenha').value;
 
-            // AQUI você deve validar as credenciais, por exemplo, com um backend. Para fins de exemplo, vamos assumir que está correto.
-            
-            // Se o login for bem-sucedido:
-            if (email && password) {
-                // Salva o e-mail no cookie
-                setCookie('userEmail', email, 7); // O cookie expirará em 7 dias
-                alert('Login bem-sucedido!');
-                // Redirecionar para a página desejada
-                window.location.href = "home.html"; // exemplo de redirecionamento
-            } else {
-                alert("Credenciais inválidas!");
+            // Verificando se as senhas correspondem
+            if (senha !== rSenha) {
+                Swal.fire({
+                    title: 'Erro!',
+                    text: 'As senhas não coincidem!',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                });
+                return;
             }
-        });
 
-        // Chama a função para verificar se o usuário está logado
-        checkLoginStatus();
+            // Verificando se o e-mail está no formato correto
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                Swal.fire({
+                    title: 'Erro!',
+                    text: 'Por favor, insira um e-mail válido!',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                });
+                return;
+            }
+
+            // Aqui você pode enviar os dados do formulário para o backend
+            // Exemplo de simulação de sucesso no cadastro
+            Swal.fire({
+                title: 'Sucesso!',
+                text: 'Cadastro realizado com sucesso!',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            });
+
+            // Limpar campos de entrada
+            document.getElementById('register-form').reset();
+        });
     </script>
 </body>
 
