@@ -4,7 +4,7 @@ window.addEventListener("scroll", function () {
   header.classList.toggle("menu-scroll", window.scrollY > 0);
 });
 
-// CARROSSEL PRODUTOS EM DESTAQUES
+/************* CARROSSEL PRODUTOS EM DESTAQUES **************/
 $('.carrossel').slick({
   prevArrow: '.slick-prev-one',
   nextArrow: '.slick-next-one',
@@ -54,12 +54,12 @@ $('.carrossel').slick({
   ]
 });
 
-/* OPEN PAGE LOGIN REGISTER */
+/************* OPEN PAGE LOGIN REGISTER **************/
 $('button').on('click', function () {
   $('#divId').show(); // Exibe o div
 });
 
-// SISTEMA LIGHT AND DARK 
+/************* SISTEMA LIGHT AND DARK **************/
 const changeThemeBtn = document.querySelector("#change-theme"); // Corrigido o nome do ID
 
 // Toggle dark mode
@@ -88,17 +88,17 @@ changeThemeBtn.addEventListener("change", function () {
   }
 });
 
-// ABRIR MODAL CONFIGURAÇÕES
+/************* ABRIR MODAL CONFIGURAÇÕES **************/
 function toggleModal(el) {
   let display = document.getElementById(el).style.display;
   document.getElementById(el).style.display = display === "none" ? 'block' : 'none';
 }
 feather.replace();
 
-// ABRINDO O MENU DO CARRINHO
+/************* ABRINDO O MENU DO CARRINHO **************/
 function scrollCart() {
   let cartItem = document.querySelector('.cardCarrinho-container');
-  
+
   document.querySelector('#cart-btn').onclick = () => {
     cartItem.classList.toggle('active');
   }
@@ -109,7 +109,7 @@ function scrollCart() {
 }
 scrollCart();
 
-// SISTEMA DE USUÁRIO LOGADO
+/************* SISTEMA DE USUÁRIO LOGADO **************/
 function loggedInUser() {
   window.addEventListener('load', () => {
     let email = localStorage.getItem('userLogado');
@@ -120,13 +120,13 @@ function loggedInUser() {
 }
 loggedInUser();
 
-// Função para sair (logout)
+/************* FUNÇÃO DE SAIR (LOGOUT) **************/
 const sair = () => {
   localStorage.removeItem('userLogado');
   window.location.href = ''; // Você pode direcionar para uma página específica após o logout
 }
 
-// SE O USUÁRIO ESTIVER LOGADO, MOSTRE O INPUT DE SAIR
+/************* MOSTRAR OPÇÃO DE SAIR SE O USUÁRIO ESTIVER LOGADO **************/
 $(document).ready(() => {
   let texto = localStorage.getItem('userLogado') ? "<li onclick='sair()'><p> sair </p></li>" : '';
   $('#li-sair').css({
