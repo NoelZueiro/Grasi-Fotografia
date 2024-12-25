@@ -22,14 +22,25 @@ function atualizarCarrinho() {
             produto.innerHTML = `
                 <div class="produtos" style="width: 45%;">${item.nome}</div>
                 <div style="width: 30%;">${item.quantidade}</div>
-                <div style="width: 20%;">R$ ${item.preco}</div>
+                <div style="width: 20%;">R$ ${item.preco.toFixed(2)}</div>
             `;
             carrinhoContainer.appendChild(produto);
 
             total += item.preco * item.quantidade; // Soma o preço total
         });
 
+        // Exibe o total do carrinho
         totalFinal.innerHTML = `<h2>Total: R$ ${total.toFixed(2)}</h2>`;
+
+        // Adiciona o botão de pagamento
+        const botaoPagamento = document.createElement('button');
+        botaoPagamento.textContent = 'Finalizar Compra';
+        botaoPagamento.classList.add('botao-pagamento');
+        botaoPagamento.addEventListener('click', () => {
+            // Aqui você pode redirecionar para a página de pagamento
+            window.location.href = '/pagina-de-pagamento'; // Substitua pelo caminho correto para sua página de pagamento
+        });
+        totalFinal.appendChild(botaoPagamento); // Adiciona o botão de pagamento
     }
 }
 
@@ -68,5 +79,11 @@ document.querySelectorAll('.add-to-cart').forEach(item => {
 
 // Inicializa o carrinho ao carregar a página
 document.addEventListener('DOMContentLoaded', () => {
-    atualizarCarrinho();
+    // Verifica se o carrinho existe no localStorage e atualiza a interface
+    if (localStorage.getItem('carrinho')) {
+        atualizarCarrinho();
+    } else {
+        const carrinhoVazioMensagem = document.getElementById('cart-items-container');
+        carrinhoVazioMensagem.innerHTML = '<h2>Seu carrinho está vazio!</h2>';
+    }
 });
