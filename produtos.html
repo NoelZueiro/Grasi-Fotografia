@@ -53,28 +53,22 @@
         <div class="config">
           <a>
             <i class="fas fa-shopping-bag" id="cart-btn"></i>
-            <p id="cont-itens-carrinho" class="sacolinhaDark"></p>
+            <p id="cont-itens-carrinho" class="sacolinhaDark">0</p>
           </a>
         </div>
 
         <div class="cardCarrinho-container" id="meuCarrinho">
           <section class="box-cart">
             <section class="description">
-              <div class="produtos" style="width: 45%;">
-                <p>Produtos</p>
-              </div>
-              <div style="width: 30%;">
-                <p>Quantidade</p>
-              </div>
-              <div style="width: 20%;">
-                <p>Preço</p>
-              </div>
+              <div class="produtos" style="width: 45%;"><p>Produtos</p></div>
+              <div style="width: 30%;"><p>Quantidade</p></div>
+              <div style="width: 20%;"><p>Preço</p></div>
             </section>
             <div class="cart-item"></div>
             <span id="totalFinal" class="total">
               <h2>Nenhum item escolhido</h2>
             </span>
-            <button id="btnFinalizarCarrinho">
+            <button id="btnFinalizarCarrinho" disabled>
               <h2>Comprar</h2>
             </button>
           </section>
@@ -200,8 +194,6 @@
           </section>
         </figcaption>
       </li>
-
-      <!-- Outros produtos podem seguir a mesma estrutura -->
     </ul>
   </section>
 
