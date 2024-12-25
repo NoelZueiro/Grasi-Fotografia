@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>Sobre Nós - Grasi Fotografias</title>
+    <link rel="icon" type="image/png" href="/assets/img/Logo-Ecommerce/sxstore.jpeg">
+</head>
+
+<body>
+    <!-- MENU -->
+    <header id="header" class="container header">
+        <nav class="menu nav">
+            <div class="divDaLogo">
+                <img src="assets/img/Logo-Ecommerce/logo_vermelha.png" alt="Logo Grasi Fotografias" class="logoEcommerce">
+            </div>
+
+            <!-- MENU RESPONSIVO -->
+            <ul class='list menuMobile' id="menuMobile" role="menuMobile">
+                <li id="active-link-menu"><a href="/index.html">Home</a></li>
+                <li><a href="/produtos.html">Produtos</a></li>
+                <li><a href="sobrenos.html">Sobre Nós</a></li>
+            </ul>
+
+            <div class="configs-menu">
+                <div class="config">
+                    <a><i class="fas fa-shopping-bag" id="cart-btn"></i></a>
+                    <p id="cont-itens-carrinho" class="sacolinhaDark"></p>
+                </div>
+
+                <div class="cardCarrinho-container" id="meuCarrinho">
+                    <section class="box-cart">
+                        <section class="description">
+                            <div class="produtos" style="width: 45%;">Produtos</div>
+                            <div style="width: 30%;">Quantidade</div>
+                            <div style="width: 20%;">Preço</div>
+                        </section>
+
+                        <div class="cart-item"></div>
+                        <span id="totalFinal" class="total"><h2>Nenhum item escolhido</h2></span>
+
+                        <button id="btnFinalizarCarrinho"><h2>Comprar</h2></button>
+                    </section>
+                </div>
+
+                <span id="user-email"></span>
+
+                <div style="width: 18%;" class="config">
+                    <button type="button" onclick="Mudarestado('openConfig')"><i class="fas fa-cog"></i></button>
+                </div>
+
+                <div id="openConfig" class="btn-config">
+                    <ul id="ul-OpenConfig">
+                        <li><p>Minha Conta</p></li>
+                        <li><p>Pagamentos</p></li>
+                        <li><p>Direitos</p></li>
+                        <div class="ul-OpenConfig">
+                            <input type="checkbox" name="chenge-theme" id="chenge-theme" />
+                            <label for="chenge-theme">
+                                <li id="btn-theme">
+                                    <p>Tema</p>
+                                    <i class="bi bi-sun"><p>Light</p></i>
+                                    <i class="bi bi-moon"><p>Dark</p></i>
+                                </li>
+                            </label>
+                        </div>
+                        <li><p>Feedbacks</p></li>
+                        <span id='li-sair'></span>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MENU RESPONSIVO -->
+    <div class="divMenuMobile">
+        <button class="btn-menu" aria-label="Abrir Menu" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
+            Menu<span class="hamburger"></span>
+        </button>
+    </div>
+
+    <!-- CATEGORIAS -->
+    <section class="categories">
+        <div class="titles-page">
+            <h5>Navegue entre as categorias</h5>
+        </div>
+        <div class="scrolling-wrapper">
+            <div class="box">
+                <i class="fa-solid fa-camera"></i>
+                <p>Melhores Fotos</p>
+            </div>
+            <div class="box">
+                <i class="fa-solid fa-heart"></i>
+                <p>Atendimento Premium</p>
+            </div>
+            <div class="box">
+                <i class="fa-solid fa-tag"></i>
+                <p>Melhores Preços</p>
+            </div>
+            <div class="box">
+                <i class="fa-solid fa-cogs"></i>
+                <p>Qualidade Garantida</p>
+            </div>
+            <div class="box">
+                <i class="fa-solid fa-shield-alt"></i>
+                <p>Segurança</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUEM SOMOS -->
+    <section class="quemsomos">
+        <h3>Quem Somos</h3>
+        <p>Somos uma loja online dedicada a oferecer produtos fotográficos de alta qualidade para nossos clientes. Nosso foco é garantir a melhor experiência de compra, com um atendimento especializado e produtos cuidadosamente selecionados.</p>
+        <p>Nosso time é apaixonado por fotografias e acredita que cada clique conta uma história única.</p>
+        <p>Se precisar de ajuda, entre em contato conosco pelo Discord.</p>
+    </section>
+
+    <style>
+        .quemsomos {
+            background-color: #f91d00;
+            color: whitesmoke;
+            padding: 40px;
+            text-align: center;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .quemsomos h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .quemsomos p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+    </style>
+
+    <!-- BOTÃO DE CHAT NO DISCORD -->
+    <a href="https://discord.gg/Zn3QJc5emH">
+        <div class="chat-button">
+            <img src="/assets/img/Logo-Ecommerce/discord.png" alt="Discord">
+        </div>
+    </a>
+
+    <style>
+        /* Estilo do botão de chat */
+        .chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #7289da;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+
+        /* Estilo para a imagem dentro do botão */
+        .chat-button img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+
+        /* Efeito de hover para o botão */
+        .chat-button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</body>
+
+</html>
