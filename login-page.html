@@ -20,7 +20,6 @@
     <title>SX Store - Login</title>
     <link rel="icon" type="image/png" href="/assets/img/Logo-Ecommerce/sxstore.jpeg">
     <script src="assets/js/login.js" defer></script>
-
 </head>
 
 <body style="background-color: var(--secundary-background);">
@@ -57,8 +56,8 @@
                 </section>
             </div>
 
-            <!-- LOGIN -->
-            <form class="login-sign-in" id="chenge-theme">
+            <!-- FORMULÁRIO DE LOGIN -->
+            <form class="login-sign-in" id="login-form">
                 <section>
                     <div id="loginID">
                         <h1>Login</h1>
@@ -101,6 +100,50 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+    <script>
+        document.getElementById('login-btn').addEventListener('click', function() {
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+
+            // Verificação básica de campos vazios
+            if (!email || !senha) {
+                Swal.fire({
+                    title: 'Erro!',
+                    text: 'Por favor, preencha todos os campos!',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                });
+                return;
+            }
+
+            // Verificação de formato do e-mail
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                Swal.fire({
+                    title: 'Erro!',
+                    text: 'Por favor, insira um e-mail válido!',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                });
+                return;
+            }
+
+            // Simulação de sucesso no login (no backend, você faria a autenticação real)
+            Swal.fire({
+                title: 'Sucesso!',
+                text: 'Login bem-sucedido!',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            });
+
+            // Limpar campos de entrada
+            document.getElementById('login-form').reset();
+
+            // Redirecionar para a página principal, por exemplo
+            window.location.href = "home.html"; // exemplo de redirecionamento após login
+        });
+    </script>
 </body>
 
 </html>
