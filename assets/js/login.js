@@ -1,27 +1,23 @@
+// Classe que gerencia o login
 class Conta {
     verify() {
-        const [email, senha] = getData()
-        const id = localStorage.getItem('id') ? parseInt(localStorage.getItem('id')) : 0 // Garantir que 'id' seja um número
+        const [email, senha] = getData();
+        const id = localStorage.getItem('id');
 
-        let isLoggedIn = false; // Variável para verificar se encontrou o usuário
+        for (let i = 1; i < id; i++) {
+            const { email: emailSis, senha: senhaSis } = JSON.parse(localStorage.getItem(`conta${i}`));
 
-        for (let i = 1; i <= id; i++) { // Iniciamos com i = 1 até id, incluindo o último
-            const storedData = localStorage.getItem(`conta${i}`);
-            if (storedData) {
-                const { e: emailSis, s: senhaSis } = JSON.parse(storedData);
+            // Descriptografando a senha
+            const decryptedPassword = CryptoJS.AES.decrypt(senhaSis, 'secret-key').toString(CryptoJS.enc.Utf8);
 
-                // Verificar se os dados coincidem
-                if (email === emailSis && senha === senhaSis) {
-                    this.approved(email);
-                    isLoggedIn = true;
-                    break;
-                }
+            if (email === emailSis && senha === decryptedPassword) {
+                this.approved(email);
+                break;
             }
-        }
 
-        // Caso não tenha encontrado a conta no localStorage
-        if (!isLoggedIn) {
-            this.disapproved();
+            if (i === id - 1) {
+                this.disapproved();
+            }
         }
     }
 
@@ -30,7 +26,7 @@ class Conta {
         Swal.fire({
             position: 'top-end',
             icon: 'success',
-            title: 'Login aprovado, você será redirecionado(a) à tela inicial',
+            title: 'Login aprovado, você será redirecionado(a) à tela inicial.',
             showConfirmButton: false,
             timer: 1500,
             confirmButtonColor: "#DD6B55"
@@ -48,12 +44,13 @@ class Conta {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'Senha e/ou usuário incorretos',
+            text: 'Senha e/ou usuário incorreto(s).',
             confirmButtonColor: "#DD6B55"
         });
     }
 }
 
+// Evento de login
 document.querySelector('#login-btn').addEventListener('click', () => {
     const conta = new Conta();
     conta.verify();
