@@ -6,24 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!------ LINK CSS STYLE ------->
     <link rel="stylesheet" href="assets/css/style.css">
-    <!--LINK CSS LOGIN -->
-    <!-- <link rel="stylesheet" href="assets/css/login.css"> -->
-    <!------ LINK FONTAWESOME ------->
+    
+    <link rel="icon" type="image/png" href="/assets/img/Logo-Ecommerce/sxstore.jpeg">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!----- LINK SLICK JS ------>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
-    <!--icon Dark-->
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.0/font/bootstrap-icons.css" />
-    <!-- SCRIPT JIVOCHAT -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
     <script src="//code.jivosite.com/widget/1YD6UYyWt8" async></script>
-    <title>SX Store - Login</title>
-    <link rel="icon" type="image/png" href="/assets/img/Logo-Ecommerce/sxstore.jpeg">
-    <script src="assets/js/login.js" defer></script>
-    <link rel="icon" type="image/png" href="/assets/img/Logo-Ecommerce/sxstore.jpeg">
+
+    <script src="assets/js/cadastro.js" defer></script>
+    <title>Grasi Fotografias - Cadastro</title>
 
 </head>
 
@@ -33,33 +33,31 @@
 
         <div class="login-container">
 
-            <div class="login-register" id="img-login-register">
+            <div class="login-register">
 
                 <section>
-                    <h1><b></b>-Grasi Fotografias</h1>
+                    <h1><b>E</b>-Grasi Fotografias</h1>
 
-                    <!-- REGISTRO DE NOVO USURÁIO -->
                     <div class="register" id="reg">
 
                         <h3>
-                            Ainda não é nosso cliente?
+                            Ja é nosso cliente?
                             <br><br>
-                            Cadastre-se agora e receba <b>&nbsp;10% de desconto</b>
+                            Loge-se agora e receba <b>&nbsp;10% de desconto</b>
                             <br>
                             na sua primeira compra
                         </h3>
 
                         <div class="login-medias-socials">
-
-                            <a href=""><i class="fa-brands fa-twitter"></i></a>
-                            <a href=""><i class="fa-brands fa-instagram"></i></a>
-                            <a href=""><i class="fa-brands fa-facebook-f"></i></a>
-
+                            <!-- Links atualizados para redirecionar -->
+                            <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/grasi.godoi/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=100010456690152" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
                         </div>
 
-                        <button class="btn-all" onclick="location.href = 'register-page.html'"
-                            style="margin-left: 40px; margin-top: 30px;">
-                            <p>Cadastrar</p>
+                        <button class="btn-all" onclick="location.href = 'login-page.html'"
+                            style="margin-top: 30px; margin-left: 50px;">
+                            <p>Logar</p>
                         </button>
 
                     </div>
@@ -67,53 +65,41 @@
 
             </div>
 
-
             <!-- LOGIN -->
-            <form class="login-sign-in" id="chenge-theme">
+            <form class="login-sign-in" id="login-form">
 
                 <section>
-                    <div id="loginID">
-                        <h1>Login</h1>
+                    <div id="cadastroID">
+                        <h1>Cadastro</h1>
 
                         <div class="sign-in">
                             <input id="email" type="email" name="email" class="email" placeholder="E-mail" required>
                             <input id="senha" type="password" name="password" class="password" placeholder="Senha"
                                 required>
+                            <input id="rSenha" type="password" name="password" class="password"
+                                placeholder="Repetir Senha" required>
                         </div>
-
                     </div>
 
-                    <!-- <div class="remember-password">
-                        <p>Lembrar senha</p>
-                        <input type="checkbox" name="remember-password" id="remember-password">
-                    </div> -->
+                    <div class="btn-Cadastrar">
 
-                    <div class="btnLogin">
-                        <input id="login-btn" type="button" class="btn-all" value="Entrar" />
-
+                        <input style="margin-top: 50px;" type="button" id="register-btn" class="btn-all"
+                            value="Cadastrar" />
                     </div>
 
-                    <div class="esqueci-a-Senha">
-
-                        <a href="#" id="registrar-pagina-login">
-                            <p>Esqueceu a senha?</p>
+                    <div class="voltar-Cadrasto">
+                        <a href="login-page.html" id="registrar-pagina-login">
+                            <p>Voltar Login?</p>
                         </a>
-
-
                     </div>
 
-                    <div>
-                        <a href="register-page.html" id="registrar-pagina-login">
-                            <p>Não tem uma conta?</p>
-                        </a>
-
-                    </div>
                 </section>
             </form>
 
         </div>
-
     </section>
+
+    <div id="mdl"></div>
 
     <!-- SWEETALERT PERSONALIZADO -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -126,9 +112,56 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
+    <script>
+        // Função para verificar se o usuário já está logado ao verificar o cookie
+        function checkLoginStatus() {
+            const userCookie = getCookie("userEmail");
+            if (userCookie) {
+                // Usuário já está logado, pode redirecionar ou mostrar uma mensagem
+                alert("Você já está logado como: " + userCookie);
+                // Redirecionar ou exibir informações do usuário logado
+            }
+        }
 
-    <!------ SCRIPT - FEATHERICONS ------->
-    <!-- <script src="assets/js/index.js"></script> -->
+        // Função para obter um cookie pelo nome
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+        // Função para definir um cookie
+        function setCookie(name, value, days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); // expiração em dias
+            const expires = "expires=" + date.toUTCString();
+            document.cookie = `${name}=${value}; ${expires}; path=/`;
+        }
+
+        // Função de login
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('senha').value;
+
+            // AQUI você deve validar as credenciais, por exemplo, com um backend. Para fins de exemplo, vamos assumir que está correto.
+            
+            // Se o login for bem-sucedido:
+            if (email && password) {
+                // Salva o e-mail no cookie
+                setCookie('userEmail', email, 7); // O cookie expirará em 7 dias
+                alert('Login bem-sucedido!');
+                // Redirecionar para a página desejada
+                window.location.href = "home.html"; // exemplo de redirecionamento
+            } else {
+                alert("Credenciais inválidas!");
+            }
+        });
+
+        // Chama a função para verificar se o usuário está logado
+        checkLoginStatus();
+    </script>
 </body>
 
 </html>
